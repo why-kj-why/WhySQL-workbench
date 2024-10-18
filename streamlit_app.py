@@ -40,7 +40,7 @@ query = st.text_area("Enter your SQL query:", height = 150)
 EXECUTE, REMOVE = st.columns([0.5, 0.5])
 
 with EXECUTE:
-    if st.button("Execute Query", key = "execute_query"):
+    if st.button("EXECUTE", key = "execute_query"):
         if not query.strip():
             st.error("Please enter a valid SQL query.")
         else:
@@ -62,7 +62,7 @@ with EXECUTE:
                 connection.close()
 
 with REMOVE:
-    if st.button("Remove Query", key = "remove_query"):
+    if st.button("REMOVE", key = "remove_query"):
         if st.session_state['query_results']:
             st.session_state['query_results'].pop(st.session_state['selected_query_index'])
             st.session_state['selected_query_index'] = max(0, len(st.session_state['query_results']) - 1)
